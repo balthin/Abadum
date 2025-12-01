@@ -3,18 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABADUM</title>
+    <title>ABADUM - Обучение</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <h1 class="logo">ABADUM</h1>
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+        </button>
     </header>
-    
+
     <div class="container">
-        <button onclick="changeBackground()">Изменить фон</button>
+        <!-- Левое меню -->
+        <nav class="sidebar">
+            <ul class="menu">
+                <li><a href="#" class="menu-item active" data-content="alphabet">
+                    <i class="fas fa-font"></i> Алфавит
+                </a></li>
+                <li><a href="#" class="menu-item" data-content="sounds">
+                    <i class="fas fa-volume-up"></i> Звуки
+                </a></li>
+                <li><a href="#" class="menu-item" data-content="words">
+                    <i class="fas fa-book"></i> Слова
+                </a></li>
+                <li><a href="#" class="menu-item" data-content="games">
+                    <i class="fas fa-gamepad"></i> Игры
+                </a></li>
+                <li><a href="#" class="menu-item" data-content="about">
+                    <i class="fas fa-info-circle"></i> О проекте
+                </a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <button onclick="changeBackground()" class="bg-btn">
+                    <i class="fas fa-palette"></i> Сменить фон
+                </button>
+            </div>
+        </nav>
+
+        <!-- Центральная часть с контентом -->
+        <main class="content">
+            <div class="content-section active" id="alphabet">
+                <h2><i class="fas fa-font"></i> Алфавит</h2>
+                <div class="alphabet-grid">
+                    <!-- Буквы будут добавляться через JavaScript -->
+                </div>
+            </div>
+
+            <div class="content-section" id="sounds">
+                <h2><i class="fas fa-volume-up"></i> Звуки</h2>
+                <p>Изучаем звуки русского языка...</p>
+                <div class="sounds-container">
+                    <!-- Звуки будут здесь -->
+                </div>
+            </div>
+
+            <div class="content-section" id="words">
+                <h2><i class="fas fa-book"></i> Слова</h2>
+                <p>Популярные слова для изучения...</p>
+            </div>
+
+            <div class="content-section" id="games">
+                <h2><i class="fas fa-gamepad"></i> Игры</h2>
+                <p>Обучающие игры скоро появятся...</p>
+            </div>
+
+            <div class="content-section" id="about">
+                <h2><i class="fas fa-info-circle"></i> О проекте</h2>
+                <p>ABADUM - интерактивная платформа для обучения русскому языку.</p>
+            </div>
+        </main>
     </div>
-    
+
     <script src="script/script.js"></script>
 </body>
 </html>
