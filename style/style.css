@@ -257,15 +257,49 @@ body.dark-theme {
         padding: 20px;
     }
 }
+/* Стили для алфавита - ДОБАВЬ ЭТО! */
+.section-content p {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-left: 5px solid #cc58d6;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .letter {
-    font-size: 2.0rem;
-    font-weight: bold;
-    color: #cc58d6;
+    font-size: 2.8rem !important;
+    font-weight: 900 !important;
+    color: #cc58d6 !important;
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
 }
 
 .reading {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #764ba2;
-    font-style: regular;
+    font-size: 2.0rem !important;
+    font-weight: 700 !important;
+    color: #764ba2 !important;
+    background: rgba(204, 88, 214, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-style: normal;
+}
+
+/* Для тёмной темы */
+.dark-theme .section-content p {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: #b399ff;
+}
+
+.dark-theme .letter {
+    color: #b399ff !important;
+}
+
+.dark-theme .reading {
+    color: #8a9eff !important;
+    background: rgba(138, 158, 255, 0.2);
 }
