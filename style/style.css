@@ -303,3 +303,67 @@ body.dark-theme {
     color: #8a9eff !important;
     background: rgba(138, 158, 255, 0.2);
 }
+
+/* Стили для журнала изменений */
+.changelog {
+    margin-top: 20px;
+}
+
+.changelog-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 5px solid #667eea;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.changelog-item:hover {
+    transform: translateX(5px);
+}
+
+.commit-hash {
+    font-family: 'Courier New', monospace;
+    background: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #666;
+    margin-right: 10px;
+}
+
+.commit-date {
+    color: #764ba2;
+    font-weight: 600;
+    margin-right: 15px;
+}
+
+.commit-message {
+    margin: 10px 0 0 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.commit-author {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Для тёмной темы */
+.dark-theme .changelog-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: #8a9eff;
+}
+
+.dark-theme .commit-hash {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ccc;
+}

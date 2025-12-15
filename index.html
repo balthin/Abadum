@@ -21,7 +21,10 @@
         <!-- Боковое меню -->
         <nav class="sidebar">
             <ul class="menu">
-                <li><a href="#" class="menu-item active" data-content="alphabet">
+                <li><a href="#" class="menu-item active" data-content="home">
+                    <i class="fas fa-home"></i> Главная
+                </a></li>
+                <li><a href="#" class="menu-item" data-content="alphabet">
                     <i class="fas fa-font"></i> Алфавит
                 </a></li>
                 <li><a href="#" class="menu-item" data-content="sounds">
@@ -47,8 +50,16 @@
 
         <!-- Центральная часть -->
         <main class="content">
+            <!-- Раздел: Главная -->
+            <section class="content-section active" id="home">
+                <h2><i class="fas fa-home"></i> Последние обновления</h2>
+                <div class="changelog">
+                     <!-- Сюда будет вставляться журнал изменений через JavaScript -->
+                     <div class="loading">Загружаем историю изменений...</div>
+                </div>
+            </section>
             <!-- Раздел: Алфавит -->
-            <section class="content-section active" id="alphabet">
+            <section class="content-section" id="alphabet">
                 <h2><i class="fas fa-font"></i> Алфавит ABADUM</h2>
                 <div class="section-content">
                     <p><span class="letter">Aa</span> - <span class="reading">a</span></p>
