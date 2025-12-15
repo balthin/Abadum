@@ -87,13 +87,32 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Функция загрузки истории коммитов с GitHub
+// Функция загрузки истории коммитов с GitHub
 async function loadChangelog() {
     const changelogContainer = document.querySelector('.changelog');
+    if (!changelogContainer) return;
     
     try {
-        // Используем GitHub API для получения коммитов
-        const response = await fetch('https://api.github.com/repos/balthin/Abadum/commits?per_page=10');
+        // Показываем сообщение о загрузке
+        changelogContainer.innerHTML = '<div class="loading">Загружаем историю изменений...</div>';
+        
+        // Используем GitHub API (публичный репозиторий)
+        const response = await fetch('https://api.github.com/repos/balthin/Abadum/commits?per_page=10', {
+            headers: {
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error(`GitHub API error: ${response.status}`);
+        }
+        
         const commits = await response.json();
+        
+        if (!commits || commits.length === 0) {
+            changelogContainer.innerHTML = '<div class="changelog-item">Нет данных об изменениях</div>';
+            return;
+        }
         
         let changelogHTML = '';
         
@@ -107,14 +126,17 @@ async function loadChangelog() {
                 minute: '2-digit'
             });
             
+            // Обрезаем хэш коммита
+            const shortHash = commit.sha ? commit.sha.substring(0, 7) : 'unknown';
+            
             changelogHTML += `
                 <div class="changelog-item">
                     <div class="commit-header">
-                        <span class="commit-hash">${commit.sha.substring(0, 7)}</span>
+                        <span class="commit-hash">${shortHash}</span>
                         <span class="commit-date">${formattedDate}</span>
-                        <span class="commit-author">${commit.commit.author.name}</span>
+                        <span class="commit-author">${commit.commit.author ? commit.commit.author.name : 'Unknown'}</span>
                     </div>
-                    <p class="commit-message">${commit.commit.message}</p>
+                    <p class="commit-message">${commit.commit.message || 'No message'}</p>
                 </div>
             `;
         });
@@ -122,10 +144,12 @@ async function loadChangelog() {
         changelogContainer.innerHTML = changelogHTML;
         
     } catch (error) {
+        console.error('Ошибка загрузки changelog:', error);
         changelogContainer.innerHTML = `
             <div class="changelog-item">
-                <p>Не удалось загрузить историю изменений. Ошибка: ${error.message}</p>
-                <p>Попробуйте обновить страницу позже.</p>
+                <p>Не удалось загрузить историю изменений</p>
+                <p><small>Ошибка: ${error.message}</small></p>
+                <p>Проверь консоль браузера (F12) для деталей</p>
             </div>
         `;
     }
