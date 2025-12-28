@@ -290,6 +290,14 @@ body.dark-theme {
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
     letter-spacing: 2px;
 }
+.sound {
+    font-size: 2.4rem !important;
+    font-weight: 900 !important;
+    color: #cc58d6 !important;
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+}
 
 .reading {
     font-size: 2.0rem !important;
