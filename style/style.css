@@ -1,4 +1,4 @@
-```css
+
 /* Сброс стандартных отступов */
 * {
     margin: 0;
@@ -41,16 +41,11 @@ body.dark-theme {
 
 /* Логотип */
 .logo {
-    font-size: 2.8rem;
-    font-weight: bold;
-    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 3s ease infinite;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    max-width: calc(100% - 70px); /* Оставляем место для кнопки */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 1; /* Разрешаем сжиматься */
 }
 
 /* Кнопка смены темы */
@@ -442,4 +437,35 @@ body.dark-theme {
         padding: 20px;
     }
 }
-```
+.header {
+    box-sizing: border-box; /* ВАЖНО! */
+    padding-right: max(15px, env(safe-area-inset-right)); /* Безопасная зона для iOS */
+    padding-left: max(15px, env(safe-area-inset-left));
+}
+
+/* Дополнительные медиа-запросы */
+@media (max-width: 400px) {
+    .logo {
+        font-size: 1.6rem !important;
+        max-width: calc(100% - 50px);
+    }
+    
+    .theme-toggle {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .logo {
+        font-size: 1.4rem !important;
+        max-width: calc(100% - 45px);
+    }
+    
+    .theme-toggle {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.8rem !important;
+    }
+}
