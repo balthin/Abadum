@@ -39,54 +39,58 @@ function toggleTheme() {
     }
 }
 
-// Функция инициализации меню
-function initMenu() {
-    const menuItems = document.querySelectorAll('.menu-item');
-    const contentSections = document.querySelectorAll('.content-section');
+// Функция инициализации подменю
+function initSubmenu() {
+    // Клик на "Звуки" — только открывает/закрывает подменю
+    document.querySelectorAll('.has-submenu > .menu-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Если кликнули не по подпункту
+            if (!e.target.closest('.submenu-item')) {
+                e.preventDefault();
+                
+                // Закрываем другие открытые подменю
+                document.querySelectorAll('.has-submenu').forEach(submenu => {
+                    if (submenu !== this.parentElement) {
+                        submenu.classList.remove('active');
+                    }
+                });
+                
+                // Открываем/закрываем текущее подменю
+                this.parentElement.classList.toggle('active');
+            }
+        });
+    });
     
-    menuItems.forEach(item => {
+    // Клик на подпункты
+    document.querySelectorAll('.submenu-item').forEach(item => {
         item.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Убираем активный класс у всех пунктов
-            menuItems.forEach(i => i.classList.remove('active'));
-            // Добавляем активный класс текущему
+            // Убираем активный класс у всех пунктов меню
+            document.querySelectorAll('.menu-item').forEach(menuItem => {
+                menuItem.classList.remove('active');
+            });
+            
+            // Добавляем активный класс текущему подпункту
             this.classList.add('active');
             
-            // Скрываем все разделы
-            contentSections.forEach(section => section.classList.remove('active'));
+            // Закрываем все разделы
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
             
-            // Показываем нужный раздел
+            // Показать нужный раздел
             const contentId = this.getAttribute('data-content');
             document.getElementById(contentId).classList.add('active');
+            
+            // Если открыли главную - загружаем changelog
+            if (contentId === 'home') {
+                loadChangelog();
+            }
         });
     });
 }
 
-// Когда страница загрузится
-document.addEventListener('DOMContentLoaded', function() {
-    // Настройка кнопки смены темы
-    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-    
-    // Настройка кнопки смены фона
-    document.getElementById('changeBgBtn').addEventListener('click', changeBackground);
-    
-    // Инициализация меню
-    initMenu();
-    
-    // Анимация логотипа
-    const logo = document.querySelector('.logo');
-    logo.style.opacity = '0';
-    logo.style.transform = 'translateY(-20px)';
-    
-    setTimeout(() => {
-        logo.style.transition = 'all 0.6s ease';
-        logo.style.opacity = '1';
-        logo.style.transform = 'translateY(0)';
-    }, 300);
-});
-
-// Функция загрузки истории коммитов с GitHub
 // Функция загрузки истории коммитов с GitHub
 async function loadChangelog() {
     const changelogContainer = document.querySelector('.changelog');
@@ -155,22 +159,40 @@ async function loadChangelog() {
     }
 }
 
-// Обновляем функцию initMenu для поддержки новой вкладки
+// Функция инициализации основного меню
 function initMenu() {
-    const menuItems = document.querySelectorAll('.menu-item');
+    const menuItems = document.querySelectorAll('.menu-item:not(.has-submenu > .menu-item)');
     const contentSections = document.querySelectorAll('.content-section');
     
     menuItems.forEach(item => {
+        // Пропускаем элементы с подменю
+        if (item.closest('.has-submenu')) return;
+        
         item.addEventListener('click', function(e) {
             e.preventDefault();
             
-            menuItems.forEach(i => i.classList.remove('active'));
+            // Убираем активный класс у всех пунктов меню (кроме подпунктов)
+            document.querySelectorAll('.menu-item').forEach(menuItem => {
+                menuItem.classList.remove('active');
+            });
+            
+            // Добавляем активный класс текущему
             this.classList.add('active');
             
+            // Закрываем все подменю
+            document.querySelectorAll('.has-submenu').forEach(submenu => {
+                submenu.classList.remove('active');
+            });
+            
+            // Скрываем все разделы
             contentSections.forEach(section => section.classList.remove('active'));
             
+            // Показываем нужный раздел
             const contentId = this.getAttribute('data-content');
-            document.getElementById(contentId).classList.add('active');
+            const targetSection = document.getElementById(contentId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
             
             // Если открыли главную - загружаем changelog
             if (contentId === 'home') {
@@ -180,12 +202,52 @@ function initMenu() {
     });
 }
 
-// В конце функции DOMContentLoaded добавляем:
+// Закрытие подменю при клике вне его
+function initOutsideClick() {
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.has-submenu')) {
+            document.querySelectorAll('.has-submenu').forEach(submenu => {
+                submenu.classList.remove('active');
+            });
+        }
+    });
+}
+
+// Когда страница загрузится
 document.addEventListener('DOMContentLoaded', function() {
-    // ... существующий код ...
+    // Настройка кнопки смены темы
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    // Настройка кнопки смены фона
+    const changeBgBtn = document.getElementById('changeBgBtn');
+    if (changeBgBtn) {
+        changeBgBtn.addEventListener('click', changeBackground);
+    }
+    
+    // Инициализация меню
+    initMenu();
+    initSubmenu();
+    initOutsideClick();
+    
+    // Анимация логотипа
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.style.opacity = '0';
+        logo.style.transform = 'translateY(-20px)';
+        
+        setTimeout(() => {
+            logo.style.transition = 'all 0.6s ease';
+            logo.style.opacity = '1';
+            logo.style.transform = 'translateY(0)';
+        }, 300);
+    }
     
     // Загружаем changelog если открыта главная
-    if (document.querySelector('#home').classList.contains('active')) {
+    const homeSection = document.querySelector('#home');
+    if (homeSection && homeSection.classList.contains('active')) {
         loadChangelog();
     }
 });

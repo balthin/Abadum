@@ -1,3 +1,4 @@
+```css
 /* Сброс стандартных отступов */
 * {
     margin: 0;
@@ -206,6 +207,61 @@ body.dark-theme {
     line-height: 1.6;
 }
 
+/* Стили для подменю */
+.has-submenu {
+    position: relative;
+}
+
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-left: 20px;
+    list-style: none;
+}
+
+.has-submenu.active .submenu {
+    max-height: 200px;
+}
+
+.submenu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+    color: #666;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.dark-theme .submenu-item {
+    color: #aaa;
+}
+
+.submenu-item:hover {
+    background: rgba(102, 126, 234, 0.05);
+    border-left: 3px solid #667eea;
+    color: #667eea;
+}
+
+.submenu-item i {
+    margin-right: 15px;
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+}
+
+.submenu-icon {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.has-submenu.active .submenu-icon {
+    transform: rotate(90deg);
+}
+
 /* Анимации */
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
@@ -218,46 +274,7 @@ body.dark-theme {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Адаптивность для телефонов */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    
-    .sidebar {
-        width: 100%;
-        height: auto;
-        padding: 15px 0;
-    }
-    
-    .menu {
-        display: flex;
-        overflow-x: auto;
-        padding: 0 15px;
-    }
-    
-    .menu-item {
-        padding: 12px 20px;
-        white-space: nowrap;
-        border-left: none;
-        border-bottom: 3px solid transparent;
-    }
-    
-    .menu-item.active,
-    .menu-item:hover {
-        border-left: none;
-        border-bottom: 3px solid #667eea;
-    }
-    
-    .logo {
-        font-size: 2.2rem;
-    }
-    
-    .content {
-        padding: 20px;
-    }
-}
-/* Стили для алфавита - ДОБАВЬ ЭТО! */
+/* Стили для алфавита */
 .section-content p {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
@@ -367,3 +384,53 @@ body.dark-theme {
     background: rgba(255, 255, 255, 0.2);
     color: #ccc;
 }
+
+/* Адаптивность для телефонов */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px 0;
+    }
+    
+    .menu {
+        display: flex;
+        overflow-x: auto;
+        padding: 0 15px;
+    }
+    
+    .menu-item {
+        padding: 12px 20px;
+        white-space: nowrap;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .menu-item.active,
+    .menu-item:hover {
+        border-left: none;
+        border-bottom: 3px solid #667eea;
+    }
+    
+    .submenu {
+        margin-left: 20px;
+    }
+    
+    .submenu-item {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .logo {
+        font-size: 2.2rem;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+}
+```

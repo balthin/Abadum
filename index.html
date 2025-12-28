@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -24,18 +25,36 @@
                 <li><a href="#" class="menu-item active" data-content="home">
                     <i class="fas fa-home"></i> Главная
                 </a></li>
+                
                 <li><a href="#" class="menu-item" data-content="alphabet">
                     <i class="fas fa-font"></i> Алфавит
                 </a></li>
-                <li><a href="#" class="menu-item" data-content="sounds">
-                    <i class="fas fa-volume-up"></i> Звуки
-                </a></li>
+                
+                <!-- МЕНЮ С ПОДМЕНЮ -->
+                <li class="has-submenu">
+                    <a href="#" class="menu-item">
+                        <i class="fas fa-volume-up"></i> Звуки
+                        <i class="fas fa-chevron-right submenu-icon"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#" class="submenu-item" data-content="sounds">
+                            <i class="fas fa-microphone"></i> Звучание
+                        </a></li>
+                        <li><a href="#" class="submenu-item" data-content="sounds-philosophy">
+                            <i class="fas fa-brain"></i> Философия звуков
+                        </a></li>
+                    </ul>
+                </li>
+                <!-- КОНЕЦ ПОДМЕНЮ -->
+                
                 <li><a href="#" class="menu-item" data-content="mythology">
                     <i class="fas fa-mountain"></i> Мифология
                 </a></li>
+                
                 <li><a href="#" class="menu-item" data-content="dictionary">
                     <i class="fas fa-book"></i> Словарь
                 </a></li>
+                
                 <li><a href="#" class="menu-item" data-content="about">
                     <i class="fas fa-info-circle"></i> О проекте
                 </a></li>
@@ -54,10 +73,10 @@
             <section class="content-section active" id="home">
                 <h2><i class="fas fa-home"></i> Последние обновления</h2>
                 <div class="changelog">
-                     <!-- Сюда будет вставляться журнал изменений через JavaScript -->
-                     <div class="loading">Загружаем историю изменений...</div>
+                    <div class="loading">Загружаем историю изменений...</div>
                 </div>
             </section>
+
             <!-- Раздел: Алфавит -->
             <section class="content-section" id="alphabet">
                 <h2><i class="fas fa-font"></i> Алфавит ABADUM</h2>
@@ -67,23 +86,22 @@
                     <p><span class="letter">Dd</span> - <span class="reading">du</span></p>
                     <p><span class="letter">Ee</span> - <span class="reading">e</span></p>
                     <p><span class="letter">Gg</span> - <span class="reading">gu</span></p>
-                    <p><span class="letter">Ii</Dd></span> - <span class="reading">i</span></p>
+                    <p><span class="letter">Ii</span> - <span class="reading">i</span></p>
                     <p><span class="letter">Kk</span> - <span class="reading">ku</span></p>
                     <p><span class="letter">Ll</span> - <span class="reading">ul</span></p>
-                    <p><span class="letter">Mm</Dd></span> - <span class="reading">um</span></p>
+                    <p><span class="letter">Mm</span> - <span class="reading">um</span></p>
                     <p><span class="letter">Nn</span> - <span class="reading">un</span></p>
                     <p><span class="letter">Pp</span> - <span class="reading">pu</span></p>
-                    <p><span class="letter">Rr</Dd></span> - <span class="reading">ur</span></p>
+                    <p><span class="letter">Rr</span> - <span class="reading">ur</span></p>
                     <p><span class="letter">Ss</span> - <span class="reading">us</span></p>
                     <p><span class="letter">Tt</span> - <span class="reading">tu</span></p>
-                    <p><span class="letter">Uu</Dd></span> - <span class="reading">u</span></p>
+                    <p><span class="letter">Uu</span> - <span class="reading">u</span></p>
                     <p><span class="letter">Vv</span> - <span class="reading">vu</span></p>
                     <p><span class="letter">Zz</span> - <span class="reading">zu</span></p>
-                    <!-- Тут ты добавишь алфавит когда захочешь -->
                 </div>
             </section>
 
-            <!-- Раздел: Звуки -->
+            <!-- Раздел: Звучание (подпункт "Звуки") -->
             <section class="content-section" id="sounds">
                 <h2><i class="fas fa-volume-up"></i> Звуки языка</h2>
                 <div class="section-content">
@@ -92,18 +110,26 @@
                     <p><span class="letter">Dd</span> - <span class="reading">[д]</span></p>
                     <p><span class="letter">Ee</span> - <span class="reading">[э]</span></p>
                     <p><span class="letter">Gg</span> - <span class="reading">[г]</span></p>
-                    <p><span class="letter">Ii</Dd></span> - <span class="reading">[и]</span></p>
+                    <p><span class="letter">Ii</span> - <span class="reading">[и]</span></p>
                     <p><span class="letter">Kk</span> - <span class="reading">[к]</span></p>
                     <p><span class="letter">Ll</span> - <span class="reading">[л]</span></p>
-                    <p><span class="letter">Mm</Dd></span> - <span class="reading">[м]</span></p>
+                    <p><span class="letter">Mm</span> - <span class="reading">[м]</span></p>
                     <p><span class="letter">Nn</span> - <span class="reading">[н]</span></p>
                     <p><span class="letter">Pp</span> - <span class="reading">[п]</span></p>
-                    <p><span class="letter">Rr</Dd></span> - <span class="reading">[р]</span></p>
+                    <p><span class="letter">Rr</span> - <span class="reading">[р]</span></p>
                     <p><span class="letter">Ss</span> - <span class="reading">[с]</span></p>
                     <p><span class="letter">Tt</span> - <span class="reading">[т]</span></p>
-                    <p><span class="letter">Uu</Dd></span> - <span class="reading">[у]</span></p>
+                    <p><span class="letter">Uu</span> - <span class="reading">[у]</span></p>
                     <p><span class="letter">Vv</span> - <span class="reading">[в]</span></p>
                     <p><span class="letter">Zz</span> - <span class="reading">[з]</span></p>
+                </div>
+            </section>
+
+            <!-- Раздел: Философия звуков (подпункт "Звуки") -->
+            <section class="content-section" id="sounds-philosophy">
+                <h2><i class="fas fa-brain"></i> Философия звуков</h2>
+                <div class="section-content">
+                    <p>Здесь будет философия звуков...</p>
                 </div>
             </section>
 
@@ -141,3 +167,4 @@
     <script src="script/script.js"></script>
 </body>
 </html>
+```
