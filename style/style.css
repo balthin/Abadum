@@ -305,6 +305,15 @@ body.dark-theme {
     border-radius: 20px;
     font-style: normal;
 }
+.philosophy {
+    font-size: 1.0rem !important;
+    font-weight: 700 !important;
+    color: #764ba2 !important;
+    background: rgba(204, 88, 214, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-style: normal;
+}
 
 /* Для тёмной темы */
 .dark-theme .section-content p {
