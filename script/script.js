@@ -251,3 +251,14 @@ document.addEventListener('DOMContentLoaded', function() {
         loadChangelog();
     }
 });
+
+document.querySelectorAll('.sound-tile').forEach(tile => {
+    tile.addEventListener('click', function() {
+        const sound = this.getAttribute('data-sound');
+        const audio = new Audio(`sounds/${sound}.mp3`);
+        audio.play().catch(e => {
+            console.error(`Ошибка воспроизведения звука: ${sound}`, e);
+            alert("Не удалось воспроизвести звук. Проверьте, разрешён ли автоплеер в браузере.");
+        });
+    });
+});
