@@ -199,7 +199,33 @@ body.dark-theme {
 }
 
 .section-content {
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-content {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-left: 5px solid #cc58d6;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.header-content {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.body-content {
+    font-size: 18px;
+    font-style: italic;
 }
 
 /* Стили для подменю */
