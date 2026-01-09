@@ -178,23 +178,31 @@ async function loadData(url) {
 
 // Функция прорисовки данных мифологии.
 async function renderMithology() {
-    const mithologyContainer = document.getElementById('mythology');
+    const mithologyContainer = document.getElementById('idContentMythology');
     if (!mithologyContainer) return;
 
     const data = await loadData('bd/mythology.json');
 
-    let mithologyHTML = `<div>Название - ${data.name}, описание - ${data.about}, создатель - ${data.creators[0]}</div>`;
+    mithologyContainer.replaceChildren();
 
-    for(let chapter of data.chapters) {
-        mithologyHTML += `
-            <div>
-                <h3>${chapter.name}</h3>
-                <p>${chapter.content}</p>
-            </div>
-        `;
+    for (let chapter of data.chapters) {
+        const elDiv = document.createElement('div');
+        elDiv.className = "item-content";
+
+        const elDivHeader = document.createElement('div');
+        elDivHeader.className = "header-content";
+        const elDivHeaderContent = document.createElement('div');
+        elDivHeaderContent.innerHTML = `${chapter.id}. ${chapter.name}`;
+        elDivHeader.appendChild(elDivHeaderContent);
+
+        const elDivBody = document.createElement('div');
+        elDivBody.className = "body-content";
+        elDivBody.innerHTML = chapter.content;
+
+        elDiv.appendChild(elDivHeader);
+        elDiv.appendChild(elDivBody);
+        mithologyContainer.appendChild(elDiv);
     }
-
-    mithologyContainer.innerHTML = mithologyHTML;
 }
 
 // Функция инициализации основного меню
