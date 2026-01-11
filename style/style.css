@@ -229,6 +229,14 @@ body.dark-theme {
     font-style: italic;
 }
 
+.body-content {
+    font-size: 18px;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    gap: 1lh;
+}
+
 /* Кликабельные плашки звуков */
 .sound-tile {
     cursor: pointer;

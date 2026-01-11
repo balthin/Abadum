@@ -181,11 +181,11 @@ async function renderMithology() {
     const mithologyContainer = document.getElementById('idContentMythology');
     if (!mithologyContainer) return;
 
-    const data = await loadData('bd/mythology.json');
+    const mythology = await loadData('bd/mythology.json');
 
     mithologyContainer.replaceChildren();
 
-    for (let chapter of data.chapters) {
+    for (let chapter of mythology.chapters) {
         const elDiv = document.createElement('div');
         elDiv.className = "item-content";
 
@@ -197,7 +197,14 @@ async function renderMithology() {
 
         const elDivBody = document.createElement('div');
         elDivBody.className = "body-content";
-        elDivBody.innerHTML = chapter.content;
+
+        for (let paragraph of chapter.content) {
+            const elDivParagraph = document.createElement('div');
+            elDivParagraph.className = "body-content-paragraph";
+            elDivParagraph.innerHTML = paragraph;
+
+            elDivBody.appendChild(elDivParagraph);
+        }
 
         elDiv.appendChild(elDivHeader);
         elDiv.appendChild(elDivBody);
