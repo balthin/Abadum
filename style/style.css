@@ -216,22 +216,28 @@ body.dark-theme {
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    gap: 5px;
+    gap: 1lh;
 }
 
 .header-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header-name {
     font-size: 20px;
     font-weight: bold;
 }
 
-.body-content {
-    font-size: 18px;
+.header-epigraph {
+    font-size: 16px;
     font-style: italic;
+    text-align: end;
 }
 
 .body-content {
     font-size: 18px;
-    font-style: italic;
     display: flex;
     flex-direction: column;
     gap: 1lh;

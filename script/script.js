@@ -191,9 +191,17 @@ async function renderMithology() {
 
         const elDivHeader = document.createElement('div');
         elDivHeader.className = "header-content";
+        
         const elDivHeaderContent = document.createElement('div');
-        elDivHeaderContent.innerHTML = `${chapter.id}. ${chapter.name}`;
+        elDivHeaderContent.className = "header-name";
+        elDivHeaderContent.innerHTML = chapter.name;
+        
+        const elDivHeaderEpigraph = document.createElement('div');
+        elDivHeaderEpigraph.className = "header-epigraph";
+        elDivHeaderEpigraph.innerHTML = chapter.epigraph;
+
         elDivHeader.appendChild(elDivHeaderContent);
+        elDivHeader.appendChild(elDivHeaderEpigraph);
 
         const elDivBody = document.createElement('div');
         elDivBody.className = "body-content";
