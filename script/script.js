@@ -177,12 +177,15 @@ async function loadData(url) {
 }
 
 // Функция прорисовки данных мифологии.
-async function renderMithology() {
-    const mithologyContainer = document.getElementById('idContentMythology');
+async function renderMithology(idElem, fileName) {
+    const mithologyContainer = document.getElementById(idElem);
+
     if (!mithologyContainer) return;
 
-    const mythology = await loadData('bd/mythology.json');
-
+    mithologyContainer.replaceChildren();
+    mithologyContainer.innerHTML = "<p>Загрузка...</p>";
+    
+    const mythology = await loadData(fileName);
     mithologyContainer.replaceChildren();
 
     for (let chapter of mythology.chapters) {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABADUM - Энциклопедия языка</title>
-    <link rel="stylesheet" href="style/style.css?v=2026.01.15">
+    <link rel="stylesheet" href="style/style.css?v=2026.01.16">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="images/abagumicon.png">
 </head>
@@ -40,14 +40,14 @@
                         <li><a href="#" class="submenu-item" data-content="sounds">
                             <i class="fas fa-microphone"></i> Звучание
                         </a></li>
-                        <li><a href="#" class="submenu-item" data-content="sounds-philosophy">
+                        <li><a onclick="renderMithology('idContentPhilosophy', 'bd/philosophySounds.json')" href="#" class="submenu-item" data-content="sounds-philosophy">
                             <i class="fas fa-brain"></i> Философия звуков
                         </a></li>
                     </ul>
                 </li>
                 <!-- КОНЕЦ ПОДМЕНЮ -->
                 
-                <li><a onclick="renderMithology()" href="#" class="menu-item" data-content="mythology">
+                <li><a onclick="renderMithology('idContentMythology', 'bd/mythology.json')" href="#" class="menu-item" data-content="mythology">
                     <i class="fas fa-mountain"></i> Мифология
                 </a></li>
 
@@ -132,170 +132,7 @@
             <!-- Раздел: Философия звуков (подпункт "Звуки") -->
             <section class="content-section" id="sounds-philosophy">
                 <h2><i class="fas fa-brain"></i> Философия звуков</h2>
-                <div class="section-content">
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">Вступление</div>
-                        </div>
-                        <div class="body-content">
-                            Есть язык, который предшествует словам. Это язык самого мироздания — тихий гул вращающихся сфер, мерный ритм приливов, шелест листвы и пение птиц. Но когда человек обрёл дар речи, он не создал его из ничего. Он услышал эту вселенскую симфонию и попытался повторить её суть в звуке собственной гортани. Так родился первый язык — не набор условных значков, а отзвук законов бытия, высеченный в дыхании.
-                            <br>И среди всех наречий, когда-либо звучавших под солнцем, особое место занимает язык древних, чьё эхо доносится до нас из глубин времён. Это не просто средство общения — это звуковая архитектура мифа, выстроенная из гортанных взрывов и звенящих протяжных гласных. Речь идёт о древне-аккадском языке, в котором нет места мягкости ради самой мягкости, но есть чеканность слога, подобная ударам по бронзе. Его звучание — это шум пустынного ветра, скрип финиковых пальм, глухой стук глиняных скрижалей. В нём слышится не быт, а бытие; не суета, а вечность, застывшая в звуках «а», «у», «и» и в твёрдых, как камень, согласных. Это язык, на котором не говорят — его изрекают, и в его аскетичной, лишённой излишеств фонетике сокрыта первобытная и грозная красота истины, обнажённой до самого своего звукового скелета.
-                            <br>Именно на этом камне подобно зикурату мы будем день за днём, год за годом воздвигать наш язык — сендинум. Мы не копируем форму, но стремимся уловить и воплотить ту же самую глубинную гармонию, где каждый звук — не случайность, а отражение самой реальности.
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">Некоторые характерные черты звучания</div>
-                        </div>
-                        <div class="body-content">
-                            Отсутствуют звуки "ш", "щ", "х", "о" (не было в аккадском), "ч", "ж".
-                            <br>Отсутствуют дифтонги.
-                            <br>Отсутствуют сложные стечения согласных.
-                            <br>Но допустимы следующие стечения согласных внутри слова, как наиболее гармоничные: nt, nd, ng, mp, ks, rt, lm, rn, gv, lv, st, sp, sk.                          
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">A</div>
-                        </div>
-                        <div class="body-content">
-                            Он — преддверие звучания, зев, из коего рождается речь, когда уста размыкаются в безмолвном изумлении, 
-                            когда гортань отверзается в первом вздохе жизни. Он не имеет формы, ибо предшествует форме, он не имеет направления, 
-                            ибо есть само пространство для направления. Это чистая возможность: тихий свет до рассвета, гладь озера до первого круга. Потому он означает Первичность, Исток.
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">B</div>
-                        </div>
-                        <div class="body-content">
-                            Звук сей — не глас, но глагол премирный, первое смыкание уст бытия, когда оно от предвечного молчания переходит к явленности. 
-                            Это — камень, брошенный в зеркальную гладь предвечного Ничто, от коего идут круги мироздания. Он есть символ Бытия, чей импульс рождает Удар сердца в первый миг жизни.
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">G</div>
-                        </div>
-                        <div class="body-content">
-                            Рождение этого звука не на острие языка, но в глубине гортани, являет собою глубину бездны, где гулким эхом зиждутся формы, ещё не отлитые в материю. 
-                            Он есть глубина, и высота: ибо что есть гора, как не глубина, устремлённая к небу? Что есть росток, как не глубина земли, пробивающаяся к свету? 
-                            В нём, в этом глубинном звуке, растворяется грань между мирами, пронизывающими друг друга, но не смешивающимися в вечности.
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">D</div>
-                        </div>
-                        <div class="body-content">
-                            Это — не взрыв творения, но утверждение устоев. Рождается он не в глубине гортани и не на мягких устах, но на зубной опоре, где язык, как каменщик, упирается в твердыню, в скелет речи. 
-                            Его рождение — это краткий, звонкий удар в сердце формы, отпечаток прикосновения. Он есть основание, на котором держится здание слова. Потому смыслы, что он несёт суть Твердь и Основание.
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">U</div>
-                        </div>
-                        <div class="body-content">
-                            природа, хтонь
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">V</div>
-                        </div>
-                        <div class="body-content">
-                            мягкость, обволакивание, вихревое движение
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">I</div>
-                        </div>
-                        <div class="body-content">
-                            малость, точность, внутреннее
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">Z</div>
-                        </div>
-                        <div class="body-content">
-                            резонанс, насыщенность, след.
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">E</div>
-                        </div>
-                        <div class="body-content">
-                            ясность, нейтральность
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">K</div>
-                        </div>
-                        <div class="body-content">
-                            острота
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">L</div>
-                        </div>
-                        <div class="body-content">
-                            гармоничность, плавность
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">M</div>
-                        </div>
-                        <div class="body-content">
-                            жизнь
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">N</div>
-                        </div>
-                        <div class="body-content">
-                            постоянное движение
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">P</div>
-                        </div>
-                        <div class="body-content">
-                            дыхание, движение воздуха
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">R</div>
-                        </div>
-                        <div class="body-content">
-                            энергия, сила
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">S</div>
-                        </div>
-                        <div class="body-content">
-                            лёгкое движение, сияние
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="header-content">
-                            <div class="header-name">T</div>
-                        </div>
-                        <div class="body-content">
-                            путь, русло, граница
-                        </div>
-                    </div>
+                <div id="idContentPhilosophy" class="section-content">
                 </div>
             </section>
 
@@ -303,7 +140,6 @@
             <section class="content-section" id="mythology">
                 <h2><i class="fas fa-mountain"></i> Мифология</h2>
                 <div id="idContentMythology" class="section-content">
-                    <p>Загрузка...</p>
                 </div>
             </section>
 
@@ -367,6 +203,6 @@
         </main>
     </div>
 
-    <script src="script/script.js?v=2026.01.15"></script>
+    <script src="script/script.js?v=2026.01.16"></script>
 </body>
 </html>
