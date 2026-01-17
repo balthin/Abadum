@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="images/abagumicon.png">
 </head>
+
 <body>
     <!-- Шапка сайта -->
     <header class="header">
@@ -23,13 +25,13 @@
         <nav class="sidebar">
             <ul class="menu">
                 <li><a href="#" class="menu-item active" data-content="home">
-                    <i class="fas fa-home"></i> Главная
-                </a></li>
-                
+                        <i class="fas fa-home"></i> Главная
+                    </a></li>
+
                 <li><a href="#" class="menu-item" data-content="alphabet">
-                    <i class="fas fa-font"></i> Алфавит
-                </a></li>
-                
+                        <i class="fas fa-font"></i> Алфавит
+                    </a></li>
+
                 <!-- МЕНЮ С ПОДМЕНЮ -->
                 <li class="has-submenu">
                     <a href="#" class="menu-item">
@@ -38,32 +40,35 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="#" class="submenu-item" data-content="sounds">
-                            <i class="fas fa-microphone"></i> Звучание
-                        </a></li>
-                        <li><a onclick="renderMithology('idContentPhilosophy', 'bd/philosophySounds.json')" href="#" class="submenu-item" data-content="sounds-philosophy">
-                            <i class="fas fa-brain"></i> Философия звуков
-                        </a></li>
+                                <i class="fas fa-microphone"></i> Звучание
+                            </a></li>
+                        <li><a onclick="renderMithology('idContentPhilosophy', 'bd/philosophySounds.json')" href="#"
+                                class="submenu-item" data-content="sounds-philosophy">
+                                <i class="fas fa-brain"></i> Философия звуков
+                            </a></li>
                     </ul>
                 </li>
                 <!-- КОНЕЦ ПОДМЕНЮ -->
-                
-                <li><a onclick="renderMithology('idContentMythology', 'bd/mythology.json')" href="#" class="menu-item" data-content="mythology">
-                    <i class="fas fa-mountain"></i> Мифология
-                </a></li>
 
-                <li><a onclick="renderDictionary('idDictionary', 'bd/dictionary.json')" href="#" class="menu-item" data-content="dictionary">
-                    <i class="fas fa-book"></i> Словарь
-                </a></li>
-                
+                <li><a onclick="renderMithology('idContentMythology', 'bd/mythology.json')" href="#" class="menu-item"
+                        data-content="mythology">
+                        <i class="fas fa-mountain"></i> Мифология
+                    </a></li>
+
+                <li><a onclick="renderDictionary('idDictionary', 'bd/dictionary.json')" href="#" class="menu-item"
+                        data-content="dictionary">
+                        <i class="fas fa-book"></i> Словарь
+                    </a></li>
+
                 <li><a href="#" class="menu-item" data-content="grammar">
-                    <i class="fas fa-book-open"></i> Грамматика
-                </a></li>
-                
+                        <i class="fas fa-book-open"></i> Грамматика
+                    </a></li>
+
                 <li><a href="#" class="menu-item" data-content="about">
-                    <i class="fas fa-info-circle"></i> О проекте
-                </a></li>
+                        <i class="fas fa-info-circle"></i> О проекте
+                    </a></li>
             </ul>
-            
+
             <div class="sidebar-footer">
                 <button class="bg-btn" id="changeBgBtn">
                     <i class="fas fa-palette"></i> Сменить фон
@@ -109,23 +114,40 @@
             <section class="content-section" id="sounds">
                 <h2><i class="fas fa-volume-up"></i> Звуки языка</h2>
                 <div class="section-content">
-                    <p class="sound-tile" data-sound="sound_a"><span class="letter">Aa</span> - <span class="reading">[а]</span></p>
-                    <p class="sound-tile" data-sound="sound_b"><span class="letter">Bb</span> - <span class="reading">[б]</span></p>
-                    <p class="sound-tile" data-sound="sound_g"><span class="letter">Gg</span> - <span class="reading">[г]</span></p>
-                    <p class="sound-tile" data-sound="sound_d"><span class="letter">Dd</span> - <span class="reading">[д]</span></p>
-                    <p class="sound-tile" data-sound="sound_u"><span class="letter">Uu</span> - <span class="reading">[у]</span></p>
-                    <p class="sound-tile" data-sound="sound_v"><span class="letter">Vv</span> - <span class="reading">[в]</span></p>
-                    <p class="sound-tile" data-sound="sound_i"><span class="letter">Ii</span> - <span class="reading">[и]</span></p>
-                    <p class="sound-tile" data-sound="sound_z"><span class="letter">Zz</span> - <span class="reading">[з]</span></p>
-                    <p class="sound-tile" data-sound="sound_e"><span class="letter">Ee</span> - <span class="reading">[э]</span></p>
-                    <p class="sound-tile" data-sound="sound_k"><span class="letter">Kk</span> - <span class="reading">[к]</span></p>
-                    <p class="sound-tile" data-sound="sound_l"><span class="letter">Ll</span> - <span class="reading">[л]</span></p>
-                    <p class="sound-tile" data-sound="sound_m"><span class="letter">Mm</span> - <span class="reading">[м]</span></p>
-                    <p class="sound-tile" data-sound="sound_n"><span class="letter">Nn</span> - <span class="reading">[н]</span></p>
-                    <p class="sound-tile" data-sound="sound_p"><span class="letter">Pp</span> - <span class="reading">[п]</span></p>
-                    <p class="sound-tile" data-sound="sound_r"><span class="letter">Rr</span> - <span class="reading">[р]</span></p>
-                    <p class="sound-tile" data-sound="sound_s"><span class="letter">Ss</span> - <span class="reading">[с]</span></p>
-                    <p class="sound-tile" data-sound="sound_t"><span class="letter">Tt</span> - <span class="reading">[т]</span></p>
+                    <p class="sound-tile" data-sound="sound_a"><span class="letter">Aa</span> - <span
+                            class="reading">[а]</span></p>
+                    <p class="sound-tile" data-sound="sound_b"><span class="letter">Bb</span> - <span
+                            class="reading">[б]</span></p>
+                    <p class="sound-tile" data-sound="sound_g"><span class="letter">Gg</span> - <span
+                            class="reading">[г]</span></p>
+                    <p class="sound-tile" data-sound="sound_d"><span class="letter">Dd</span> - <span
+                            class="reading">[д]</span></p>
+                    <p class="sound-tile" data-sound="sound_u"><span class="letter">Uu</span> - <span
+                            class="reading">[у]</span></p>
+                    <p class="sound-tile" data-sound="sound_v"><span class="letter">Vv</span> - <span
+                            class="reading">[в]</span></p>
+                    <p class="sound-tile" data-sound="sound_i"><span class="letter">Ii</span> - <span
+                            class="reading">[и]</span></p>
+                    <p class="sound-tile" data-sound="sound_z"><span class="letter">Zz</span> - <span
+                            class="reading">[з]</span></p>
+                    <p class="sound-tile" data-sound="sound_e"><span class="letter">Ee</span> - <span
+                            class="reading">[э]</span></p>
+                    <p class="sound-tile" data-sound="sound_k"><span class="letter">Kk</span> - <span
+                            class="reading">[к]</span></p>
+                    <p class="sound-tile" data-sound="sound_l"><span class="letter">Ll</span> - <span
+                            class="reading">[л]</span></p>
+                    <p class="sound-tile" data-sound="sound_m"><span class="letter">Mm</span> - <span
+                            class="reading">[м]</span></p>
+                    <p class="sound-tile" data-sound="sound_n"><span class="letter">Nn</span> - <span
+                            class="reading">[н]</span></p>
+                    <p class="sound-tile" data-sound="sound_p"><span class="letter">Pp</span> - <span
+                            class="reading">[п]</span></p>
+                    <p class="sound-tile" data-sound="sound_r"><span class="letter">Rr</span> - <span
+                            class="reading">[р]</span></p>
+                    <p class="sound-tile" data-sound="sound_s"><span class="letter">Ss</span> - <span
+                            class="reading">[с]</span></p>
+                    <p class="sound-tile" data-sound="sound_t"><span class="letter">Tt</span> - <span
+                            class="reading">[т]</span></p>
                 </div>
             </section>
 
@@ -154,7 +176,7 @@
             <section class="content-section" id="grammar">
                 <h2><i class="fas fa-book-open"></i> Грамматика</h2>
                 <div class="section-content">
-                    
+
                     <div class="item-content">
                         <div class="header-content">
                             <div class="header-name">
@@ -174,12 +196,15 @@
                             </div>
                         </div>
                         <div class="body-content">
-                            прилагательное, прилагательное, прилагательное, прилагательное, прилагательное, прилагательное, 
-                            прилагательное, прилагательное, прилагательное, прилагательное, прилагательное, прилагательное, 
-                            прилагательное, прилагательное, прилагательное, прилагательное, прилагательное, прилагательное
+                            прилагательное, прилагательное, прилагательное, прилагательное, прилагательное,
+                            прилагательное,
+                            прилагательное, прилагательное, прилагательное, прилагательное, прилагательное,
+                            прилагательное,
+                            прилагательное, прилагательное, прилагательное, прилагательное, прилагательное,
+                            прилагательное
                         </div>
                     </div>
-                    
+
                 </div>
             </section>
 
@@ -188,7 +213,10 @@
                 <h2><i class="fas fa-info-circle"></i> О проекте</h2>
                 <div class="section-content">
                     <p>ABADUM - проект по созданию древнего языка и мифологии.</p>
-                    <p>Ты можешь наполнять этот сайт своими материалами. Предлагай и обсуждай идеи в телеграмм-канале: <a href="https://t.me/abadumchat">https://t.me/abadumchat</a></p>
+                    <p>
+                        Ты можешь наполнять этот сайт своими материалами.
+                        <a href="https://t.me/abadumchat" target="_blank">Телеграмм-чат</a>
+                    </p>
                 </div>
             </section>
         </main>
@@ -196,4 +224,5 @@
 
     <script src="script/script.js?v=2026.01.17"></script>
 </body>
+
 </html>
