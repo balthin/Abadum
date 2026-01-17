@@ -161,7 +161,7 @@ async function loadChangelog() {
 
 // Функция загрузки данных.
 async function loadData(url) {
-    const response = await fetch(url);
+    const response = await fetch(`${url}?v=${Date.now()}`);
 
     if (!response.ok) {
         throw new Error(`Ошибка при загрузке данных: ${response.status} ${response.statusText}`)
@@ -184,7 +184,7 @@ async function renderMithology(idElem, fileName) {
 
     mithologyContainer.replaceChildren();
     mithologyContainer.innerHTML = "<p>Загрузка...</p>";
-    
+
     const mythology = await loadData(fileName);
     mithologyContainer.replaceChildren();
 
@@ -194,11 +194,11 @@ async function renderMithology(idElem, fileName) {
 
         const elDivHeader = document.createElement('div');
         elDivHeader.className = "header-content";
-        
+
         const elDivHeaderContent = document.createElement('div');
         elDivHeaderContent.className = "header-name";
         elDivHeaderContent.innerHTML = chapter.name;
-        
+
         const elDivHeaderEpigraph = document.createElement('div');
         elDivHeaderEpigraph.className = "header-epigraph";
         elDivHeaderEpigraph.innerHTML = chapter.epigraph;
@@ -220,6 +220,26 @@ async function renderMithology(idElem, fileName) {
         elDiv.appendChild(elDivHeader);
         elDiv.appendChild(elDivBody);
         mithologyContainer.appendChild(elDiv);
+    }
+}
+
+// Прорисовка словаря.
+async function renderDictionary(idElem, fileName) {
+    const dictionaryContainer = document.getElementById(idElem);
+    if (!dictionaryContainer) return;
+
+    dictionaryContainer.replaceChildren();
+    dictionaryContainer.innerHTML = "<p>Загрузка...</p>";
+
+    const dict = await loadData(fileName);
+    dictionaryContainer.replaceChildren();
+
+    for (let word of dict.words) {
+        if (!word.word || !word.translation) return;
+
+        const elP = document.createElement('p');
+        elP.innerHTML = `${word.word} - ${word.translation}`;
+        dictionaryContainer.appendChild(elP);
     }
 }
 
@@ -319,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
 document.querySelectorAll('.sound-tile').forEach(tile => {
     tile.addEventListener('click', function () {
         const sound = this.getAttribute('data-sound');
-        const audio = new Audio(`sounds/${sound}.mp3`);
+        const audio = new Audio(`sounds/${sound}.mp3?v=${Date.now()}`);
         audio.play().catch(e => {
             console.error(`Ошибка воспроизведения звука: ${sound}`, e);
             alert("Не удалось воспроизвести звук. Проверьте, разрешён ли автоплеер в браузере.");
